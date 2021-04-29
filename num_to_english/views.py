@@ -23,11 +23,13 @@ def index(request):
             return Response(message)
         except ValueError:
             message = {
+                "err": True,
                 "status": "failed",
                 "error_message": f"Value '{number}' is not a number"
             }
             return Response(message, status=status.HTTP_400_BAD_REQUEST)
     message = {
+        "err": True,
         "status": "failed",
         "message": "Server error"
     }
